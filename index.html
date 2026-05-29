@@ -1,4 +1,85 @@
-* {
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaGame Platform - Лучшие игры!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎮 MegaGame Platform</h1>
+        <p>Самые крутые игры в одном месте! 🤖</p>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-game="main">Главная</button>
+        <button class="nav-btn" data-game="whack-a-mole">Ударь крота</button>
+        <button class="nav-btn" data-game="dandy-adventure">Приключения Данди</button>
+        <button class="nav-btn" data-game="roblox-race">Roblox Гонки</button>
+    </nav>
+
+    <main>
+        <!-- Главная страница -->
+        <section id="main" class="game-section active">
+            <div class="game-grid">
+                <div class="game-card" data-game="whack-a-mole">
+                    <h3>🦡 Ударь крота!</h3>
+                    <p>Проверь свою реакцию!</p>
+                </div>
+                <div class="game-card" data-game="dandy-adventure">
+                    <h3>🌍 Приключения Данди</h3>
+                    <p>Исследуй волшебный мир!</p>
+                </div>
+                <div class="game-card" data-game="roblox-race">
+                    <h3>🚗 Roblox Гонки</h3>
+                    <p>Соревнуйся с друзьями!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Игра "Ударь крота" -->
+        <section id="whack-a-mole" class="game-section">
+            <div class="game-container">
+                <div class="score-board">
+                    Счёт: <span id="score">0</span> | Время: <span id="timer">60</span>с
+                </div>
+                <div class="mole-grid">
+                    <div class="hole" data-hole="1"></div>
+                    <div class="hole" data-hole="2"></div>
+                    <div class="hole" data-hole="3"></div>
+                    <div class="hole" data-hole="4"></div>
+                    <div class="hole" data-hole="5"></div>
+                    <div class="hole" data-hole="6"></div>
+                </div>
+                <button id="start-game" class="btn">Начать игру!</button>
+            </div>
+        </section>
+
+        <!-- Заглушка для других игр -->
+        <section id="dandy-adventure" class="game-section">
+            <div class="placeholder">
+                <h2>Приключения Данди 🗺️</h2>
+                <p>Скоро в игре: исследуйте мир Данди, собирайте сокровища и побеждайте врагов!</p>
+            </div>
+        </section>
+
+        <section id="roblox-race" class="game-section">
+            <div class="placeholder">
+                <h2>Roblox Гонки 🏎️</h2>
+                <p>Участвуйте в захватывающих гонках с персонажами Roblox!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 MegaGame Platform. Все права защищены. Персонажи используются с отсылкой к оригинальным вселенным.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
