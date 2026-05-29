@@ -2,87 +2,80 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Игра: Поймай пришельца! 🛸</title>
-    <style>
-        body { 
-            background-color: #0d1117; 
-            color: #c9d1d9; 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            overflow: hidden; /* Чтобы пришелец не улетал за границы экрана */
-            user-select: none; /* Отключаем выделение текста при кликах */
-        }
-        .header {
-            margin-top: 20px;
-            font-size: 24px;
-        }
-        #score-board {
-            color: #58a6ff;
-            font-weight: bold;
-            font-size: 36px;
-        }
-        /* А это наш прыгающий пришелец */
-        #target {
-            font-size: 50px;
-            position: absolute;
-            cursor: pointer;
-            transition: all 0.1s ease; /* Делает движения плавными */
-            left: 50%;
-            top: 50%;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaGame Platform - Лучшие игры!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>🎮 MegaGame Platform</h1>
+        <p>Самые крутые игры в одном месте! 🤖</p>
+    </header>
 
-    <div class="header">
-        <h1>Космическая миссия будущего профи 🚀</h1>
-        <p>Успей поймать пришельца кликом мышки!</p>
-        <div>Счёт: <span id="score-board">0</span></div>
-    </div>
+    <nav>
+        <button class="nav-btn active" data-game="main">Главная</button>
+        <button class="nav-btn" data-game="whack-a-mole">Ударь крота</button>
+        <button class="nav-btn" data-game="dandy-adventure">Приключения Данди</button>
+        <button class="nav-btn" data-game="roblox-race">Roblox Гонки</button>
+    </nav>
 
-    <!-- Наша цель (можно заменить на любой другой смайлик) -->
-    <div id="target" onclick="catchTarget()">👽</div>
+    <main>
+        <!-- Главная страница -->
+        <section id="main" class="game-section active">
+            <div class="game-grid">
+                <div class="game-card" data-game="whack-a-mole">
+                    <h3>🦡 Ударь крота!</h3>
+                    <p>Проверь свою реакцию!</p>
+                </div>
+                <div class="game-card" data-game="dandy-adventure">
+                    <h3>🌍 Приключения Данди</h3>
+                    <p>Исследуй волшебный мир!</p>
+                </div>
+                <div class="game-card" data-game="roblox-race">
+                    <h3>🚗 Roblox Гонки</h3>
+                    <p>Соревнуйся с друзьями!</p>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        let score = 0;
-        let gameInterval;
-        let speed = 1000; // Скорость прыжков в миллисекундах (1 секунда)
+        <!-- Игра "Ударь крота" -->
+        <section id="whack-a-mole" class="game-section">
+            <div class="game-container">
+                <div class="score-board">
+                    Счёт: <span id="score">0</span> | Время: <span id="timer">60</span>с
+                </div>
+                <div class="mole-grid">
+                    <div class="hole" data-hole="1"></div>
+                    <div class="hole" data-hole="2"></div>
+                    <div class="hole" data-hole="3"></div>
+                    <div class="hole" data-hole="4"></div>
+                    <div class="hole" data-hole="5"></div>
+                    <div class="hole" data-hole="6"></div>
+                </div>
+                <button id="start-game" class="btn">Начать игру!</button>
+            </div>
+        </section>
 
-        // Функция, которая двигает пришельца в случайное место экрана
-        function moveTarget() {
-            let target = document.getElementById("target");
-            
-            // Считаем размеры экрана, чтобы цель не вылетала за край
-            let maxX = window.innerWidth - 60;
-            let maxY = window.innerHeight - 150;
-            
-            // Случайные координаты
-            let randomX = Math.floor(Math.random() * maxX);
-            let randomY = Math.floor(Math.random() * maxY) + 100; // Оставляем место для текста вверху
-            
-            target.style.left = randomX + "px";
-            target.style.top = randomY + "px";
-        }
+        <!-- Заглушка для других игр -->
+        <section id="dandy-adventure" class="game-section">
+            <div class="placeholder">
+                <h2>Приключения Данди 🗺️</h2>
+                <p>Скоро в игре: исследуйте мир Данди, собирайте сокровища и побеждайте врагов!</p>
+            </div>
+        </section>
 
-        // Функция, которая срабатывает, когда ты поймал пришельца
-        function catchTarget() {
-            score = score + 1;
-            document.getElementById("score-board").innerText = score;
-            
-            // Каждый раз игра становится чуть-чуть быстрее!
-            clearInterval(gameInterval);
-            if (speed > 400) {
-                speed = speed - 50; // Ускоряем прыжки
-            }
-            
-            moveTarget(); // Сразу прыгаем на новое место
-            gameInterval = setInterval(moveTarget, speed); // Запускаем новый таймер скорости
-        }
+        <section id="roblox-race" class="game-section">
+            <div class="placeholder">
+                <h2>Roblox Гонки 🏎️</h2>
+                <p>Участвуйте в захватывающих гонках с персонажами Roblox!</p>
+            </div>
+        </section>
+    </main>
 
-        // Запуск игры при открытии страницы
-        gameInterval = setInterval(moveTarget, speed);
-    </script>
+    <footer>
+        <p>© 2024 MegaGame Platform. Все права защищены. Персонажи используются с отсылкой к оригинальным вселенным.</p>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
