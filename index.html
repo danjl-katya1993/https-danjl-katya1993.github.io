@@ -1,34 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой GitHub Сайт</title>
+    <title>Игра: Поймай пришельца! 🛸</title>
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        h1 { color: #58a6ff; }
-        .box { border: 2px dashed #30363d; padding: 30px; display: inline-block; border-radius: 10px; background: #161b22; }
-        .btn { background-color: #238636; color: white; border: none; padding: 15px 30px; font-size: 18px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
-        .btn:hover { background-color: #2ea043; }
-        #counter { font-size: 32px; color: #58a6ff; font-weight: bold; }
+        body { 
+            background-color: #0d1117; 
+            color: #c9d1d9; 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            overflow: hidden; /* Чтобы пришелец не улетал за границы экрана */
+            user-select: none; /* Отключаем выделение текста при кликах */
+        }
+        .header {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        #score-board {
+            color: #58a6ff;
+            font-weight: bold;
+            font-size: 36px;
+        }
+        /* А это наш прыгающий пришелец */
+        #target {
+            font-size: 50px;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.1s ease; /* Делает движения плавными */
+            left: 50%;
+            top: 50%;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Сайт будущего топ-разработчика 💻</h1>
-        <p>Я создаю этот проект на GitHub в 10 лет.</p>
-        <p>До цели стать профи осталось 8 лет!</p>
-        
-        <p>Кликни по кнопке:</p>
-        <div id="counter">0</div>
-        <button class="btn" onclick="countUp()">Клик!</button>
+
+    <div class="header">
+        <h1>Космическая миссия будущего профи 🚀</h1>
+        <p>Успей поймать пришельца кликом мышки!</p>
+        <div>Счёт: <span id="score-board">0</span></div>
     </div>
 
+    <!-- Наша цель (можно заменить на любой другой смайлик) -->
+    <div id="target" onclick="catchTarget()">👽</div>
+
     <script>
-        let clicks = 0;
-        function countUp() {
-            clicks = clicks + 1;
-            document.getElementById("counter").innerText = clicks;
+        let score = 0;
+        let gameInterval;
+        let speed = 1000; // Скорость прыжков в миллисекундах (1 секунда)
+
+        // Функция, которая двигает пришельца в случайное место экрана
+        function moveTarget() {
+            let target = document.getElementById("target");
+            
+            // Считаем размеры экрана, чтобы цель не вылетала за край
+            let maxX = window.innerWidth - 60;
+            let maxY = window.innerHeight - 150;
+            
+            // Случайные координаты
+            let randomX = Math.floor(Math.random() * maxX);
+            let randomY = Math.floor(Math.random() * maxY) + 100; // Оставляем место для текста вверху
+            
+            target.style.left = randomX + "px";
+            target.style.top = randomY + "px";
         }
+
+        // Функция, которая срабатывает, когда ты поймал пришельца
+        function catchTarget() {
+            score = score + 1;
+            document.getElementById("score-board").innerText = score;
+            
+            // Каждый раз игра становится чуть-чуть быстрее!
+            clearInterval(gameInterval);
+            if (speed > 400) {
+                speed = speed - 50; // Ускоряем прыжки
+            }
+            
+            moveTarget(); // Сразу прыгаем на новое место
+            gameInterval = setInterval(moveTarget, speed); // Запускаем новый таймер скорости
+        }
+
+        // Запуск игры при открытии страницы
+        gameInterval = setInterval(moveTarget, speed);
     </script>
+
 </body>
 </html>
