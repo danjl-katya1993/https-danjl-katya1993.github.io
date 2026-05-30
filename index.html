@@ -3,126 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игровой Мир — Платформа с тысячами игр!</title>
-<style>
-  body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: #1a1a1a;
-    color: #ffffff;
-    padding: 20px;
-  }
-  .games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  .game-card {
-    background: #2a2a2a;
-    border: 2px solid #ff6b6b;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-  }
-  button {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-</style>
+    <title>Игровая платформа — 100+ игр</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать в Игровой Мир!</h1>
-        <p>Выбери игру и телепортируйся в приключение!</p>
+        <h1>Добро пожаловать на игровую платформу!</h1>
+        <p>Выберите игру из нашей коллекции — более 100 увлекательных развлечений!</p>
     </header>
 
     <main>
-        <div class="games-grid">
-            <div class="game-card" data-game="Мир Данди">
-                <h3>Мир Данди</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Космические Гонки">
-                <h3>Космические Гонки</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Затерянный Остров">
-                <h3>Затерянный Остров</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Битва Титанов">
-                <h3>Битва Титанов</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Волшебный Лабиринт">
-                <h3>Волшебный Лабиринт</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Подводные Приключения">
-                <h3>Подводные Приключения</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Город Супергероев">
-                <h3>Город Супергероев</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Королевство Эльфов">
-                <h3>Королевство Эльфов</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Динозавры Юрского Периода">
-                <h3>Динозавры Юрского Периода</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Пиратские Сокровища">
-                <h3>Пиратские Сокровища</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Фабрика Идей">
-                <h3>Фабрика Идей</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Парк Динозавров">
-                <h3>Парк Динозавров</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Академия Магии">
-                <h3>Академия Магии</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Гонки на Луне">
-                <h3>Гонки на Луне</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Тайны Древнего Египта">
-                <h3>Тайны Древнего Египта</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Остров Сокровищ">
-                <h3>Остров Сокровищ</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Путешествие во Времени">
-                <h3>Путешествие во Времени</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Лаборатория Учёного">
-                <h3>Лаборатория Учёного</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Звёздные Войны">
-                <h3>Звёздные Войны</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
-            <div class="game-card" data-game="Сказочный Лес">
-                <h3>Сказочный Лес</h3>
-                <button class="teleport-btn">Телепорт!</button>
-            </div>
+        <div class="games-grid" id="gamesGrid">
+            <!-- Игры будут сгенерированы JavaScript -->
         </div>
     </main>
 
+    <footer>
+        <p>&copy; 2024 Игровая платформа. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
