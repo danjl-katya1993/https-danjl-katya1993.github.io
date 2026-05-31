@@ -1,1 +1,1 @@
-https://danjl-katya1993.github.io
+https://the game.github.io
