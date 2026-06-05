@@ -1,62 +1,94 @@
-// Данные о играх
-const gamesData = [
-    {
-        id: 1,
-        title: "Мир Денди",
-        description: "Классическая ретро-игра в стиле 8-битных консолей",
-        icon: "🕹️",
-        folder: "dendy-world",
-        category: "dendy"
-    }
-];
-
-// Генерируем остальные 99 игр
-for (let i = 2; i <= 100; i++) {
-    gamesData.push({
-        id: i,
-        title: `Игра №${i}`,
-        description: `Увлекательное приключение №${i} с красочной графикой`,
-        icon: getRandomIcon(),
-        folder: `game${i}`,
-        category: getRandomCategory()
-    });
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// Служебные функции
-function getRandomIcon() {
-    const icons = ["🎮", "🏀", "⚽", "🏸", "🎯", "🛸", "🚀", "🦸", "🧙", "🤹"];
-    return icons[Math.floor(Math.random() * icons.length)];
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
 }
 
-function getRandomCategory() {
-    const categories = ["adventure", "puzzle", "arcade", "strategy", "sports"];
-    return categories[Math.floor(Math.random() * categories.length)];
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
-// Функция для создания карточек игр
-function createGameCards() {
-    const gamesGrid = document.getElementById('gamesGrid');
-    
-    gamesData.forEach(game => {
-        const card = document.createElement('div');
-        card.className = `game-card ${game.category}`;
-        card.innerHTML = `
-            <div class="game-icon">${game.icon}</div>
-            <h3 class="game-title">${game.title}</h3>
-            <p class="game-description">${game.description}</p>
-        `;
-        
-        card.addEventListener('click', () => playGame(game.folder));
-        gamesGrid.appendChild(card);
-    });
+.ui-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 10;
 }
 
-// Функция запуска игры
-function playGame(gameFolder) {
-    // В реальном проекте здесь будет переход на страницу игры
-    alert(`Запуск игры из папки: ${gameFolder}`);
-    // window.location.href = `games/${gameFolder}/index.html`;
+.stats div {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', createGameCards);
+.actions button {
+    display: block;
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.store {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: #f0f8ff;
+    border: 2px solid #333;
+    margin-top: 20px;
+}
+
+.shelves {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shelf {
+    width: 18%;
+    height: 120px;
+    background: #cd853f;
+    border: 2px solid #8b4513;
+    position: relative;
+}
+
+.product {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ff6b6b;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #f4a261;
+    border: 2px dashed #e76f51;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:
