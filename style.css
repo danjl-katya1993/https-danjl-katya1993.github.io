@@ -5,98 +5,153 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: white;
+    overflow: hidden;
 }
 
-header {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.ui-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 10;
 }
 
-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.game-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.game-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.game-icon {
-    width: 80px;
-    height: 80px;
-    background: #ff6b6b;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-}
-
-.dendy .game-icon {
-    background: #4ecdc4;
-}
-
-.game-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.stats div {
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-.game-description {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    line-height: 1.4;
+.actions button {
+    display: block;
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-footer {
+.store {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: #f0f8ff;
+    border: 2px solid #333;
+    margin-top: 20px;
+}
+
+.shelves {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shelf {
+    width: 18%;
+    height: 120px;
+    background: #cd853f;
+    border: 2px solid #8b4513;
+    position: relative;
+}
+
+.product {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ff6b6b;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #f4a261;
+    border: 2px dashed #e76f51;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: move;
+}
+
+.trash {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.customers {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.customer {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: #26c6da;
+    border-radius: 50% 50% 20% 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 8px;
+    color: white;
+}
+
+.tablet {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    width: 200px;
+}
+
+.products-list div {
+    padding: 8px;
+    margin: 5px 0;
+    background: #e8f5e8;
+    border-radius: 5px;
+    cursor: pointer;
     text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-    background: rgba(0, 0, 0, 0.3);
-    font-size: 0.9rem;
-    opacity: 0.7;
 }
 
-/* Анимация для перехода */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.game-card {
-    animation: fadeIn 0.5s ease forwards;
+.products-list div:hover {
+    background: #c8e6c9;
 }
