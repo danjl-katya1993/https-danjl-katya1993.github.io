@@ -2,43 +2,25 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Супермаркет Симулятор</title>
+    <title>Кликер лимонада</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="ui-panel">
-            <div class="stats">
-                <div>Деньги: <span id="money">1000</span> руб.</div>
-                <div>Уровень: <span id="level">1</span></div>
-                <div>Репутация: <span id="reputation">50</span></div>
-            </div>
-            <div class="actions">
-                <button id="hire-cashier">Нанять кассира (200 руб.)</button>
-                <button id="hire-stock">Нанять складчика (150 руб.)</button>
-                <button id="expand">Расширить магазин (500 руб.)</button>
-            </div>
+    <div class="container">
+        <h1>Кликер лимонада!</h1>
+        <div class="stats">
+            <p>Стаканов лимонада: <span id="lemonadeCount">0</span></p>
+            <p>Автокликер: <span id="autoclickerLevel">0</span> (<span id="autoclickerPower">1</span> стакан/сек)</p>
         </div>
-
-        <div class="store">
-            <div class="shelves" id="shelves">
-                <!-- Полки будут создаваться через JS -->
-            </div>
-            <div class="customers" id="customers">
-                <!-- Покупатели будут создаваться через JS -->
-            </div>
-            <div class="trash" id="trash">Мусорка</div>
-        </div>
-
-        <div class="tablet" id="tablet">
-            <h3>Планшет закупок</h3>
-            <div class="products-list" id="products-list">
-                <!-- Товары для закупки будут создаваться через JS -->
+        <div class="game">
+            <div id="lemon" class="lemon">🍋</div>
+            <div class="shop">
+                <h2>Магазин улучшений</h2>
+                <button id="buyAutoclicker">Купить автокликер (10 стаканов)</button>
+                <p id="shopMessage"></p>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
